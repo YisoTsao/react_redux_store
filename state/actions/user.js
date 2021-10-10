@@ -13,9 +13,9 @@ export const cleanUser = (user) => {
 };
 
 function clean(user) {
-  return { type: constant_cleanUser, user, time: Date.now() };
+  return { type: constant_cleanUser, user };
 }
 
 function edit(user) {
-  return { type: constant_editUser, user, time: Date.now() };
+  return { type: constant_editUser, user };
 }
