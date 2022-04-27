@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BaseLayout } from "../components/Layout";
 class Books extends React.Component {
   constructor() {
     super();
@@ -7,14 +7,15 @@ class Books extends React.Component {
       isLoading: true,
       status: "In progress...",
       books: [],
-      getUser: () => {return "gary tt"},
+      getUser: () => {
+        return "gary tt";
+      },
     };
   }
 
   static maxBook() {
     return 10;
   }
-
 
   componentDidMount() {
     console.log("Status: ", this.state.status);
@@ -41,26 +42,28 @@ class Books extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        {this.state.isLoading ? (
-          <h1>Loading...</h1>
-        ) : (
-          <div>
-            <h1>max</h1>
-            <div>{Books.maxBook()}</div>
-            <div>{this.state.getUser()}</div>
-            <button
-              onClick={() =>
-                this.setState({ books: ["newSalad", "newCooking"] })
-              }
-            >
-              show alert
-            </button>
-            <input />
-            <h2>{this.getBookId()}</h2>
-          </div>
-        )}
-      </div>
+      <BaseLayout>
+        <div className="App">
+          {this.state.isLoading ? (
+            <h1>Loading...</h1>
+          ) : (
+            <div>
+              <h1>max</h1>
+              <div>{Books.maxBook()}</div>
+              <div>{this.state.getUser()}</div>
+              <button
+                onClick={() =>
+                  this.setState({ books: ["newSalad", "newCooking"] })
+                }
+              >
+                show alert
+              </button>
+              <input />
+              <h2>{this.getBookId()}</h2>
+            </div>
+          )}
+        </div>
+      </BaseLayout>
     );
   }
 }
